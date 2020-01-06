@@ -29,6 +29,7 @@ namespace Darts.Repo
 
 				_db.DartScore.Add(score);
 				_db.SaveChanges();
+
 			}
 			else if (score.ID != 0)
 			{
