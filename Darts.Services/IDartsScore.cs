@@ -9,6 +9,7 @@ namespace DartsAPI.Darts.Services
 		DartsScore GetDartsScore(int? id);
 		IQueryable<DartsScore> GetDartsScores { get; }
 		void Save(DartsScore score);
+		int GetDartNo(int sessionID);
 
 	} 
 }

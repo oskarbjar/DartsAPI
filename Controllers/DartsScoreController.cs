@@ -23,6 +23,7 @@ namespace DartsAPI.Controllers
 		{
 			if (data == null)
 			{ return BadRequest(); }
+			data.DartNo = dartsScore.GetDartNo(data.SessionRefID);
 			dartsScore.Save(data);
 			return Ok(data);
 		}

@@ -26,8 +26,13 @@ namespace DartsAPI.Controllers
 			if (data == null)
 			{ return BadRequest(); }
 
-			dartSession.Save(data);
-			return Ok(data);
+			var ds = new DartSession
+			{
+				SessionDate = data.SessionDate
+			};
+			dartSession.Save(ds);
+			
+			return Ok(ds);
 		}
 		[HttpGet]
 		public IActionResult GetDartSessions()

@@ -22,6 +22,25 @@ namespace Darts.Repo
 			return dartsScore;
 		}
 
+		public int GetDartNo(int sessionID)
+		{
+			var returnNumber = 0;
+			var dartNo = (from dart in _db.DartScore
+						  where dart.SessionRefID == sessionID
+						  select dart).OrderByDescending(m => m.ID).ToList();
+			if(dartNo.Count ==0)
+			{
+				return 1;
+			}
+			else
+			{
+				var DartNumber = dartNo.FirstOrDefault().DartNo;
+				return returnNumber = (DartNumber == 3) ? 1 : DartNumber + 1;
+			}
+			
+		  
+		}
+
 		public void Save(DartsScore score)
 		{
 			if (score.ID == 0)
